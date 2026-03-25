@@ -7,6 +7,7 @@
         window.laravelCookieConsent = (function () {
 
             const COOKIE_VALUE = 1;
+            const REJECT_VALUE = 0;
             const COOKIE_DOMAIN = '{{ config('session.domain') ?? request()->getHost() }}';
 
             function consentWithCookies() {
@@ -14,8 +15,13 @@
                 hideCookieDialog();
             }
 
+            function rejectWithCookies() {
+                setCookie('{{ $cookieConsentConfig['cookie_name'] }}', REJECT_VALUE, {{ $cookieConsentConfig['cookie_lifetime'] }});
+                hideCookieDialog();
+            }
+
             function cookieExists(name) {
-                return (document.cookie.split('; ').indexOf(name + '=' + COOKIE_VALUE) !== -1);
+                return (document.cookie.split('; ').filter(item => item.trim().startsWith(name + '=')).length > 0);
             }
 
             function hideCookieDialog() {
@@ -46,8 +52,15 @@
                 buttons[i].addEventListener('click', consentWithCookies);
             }
 
+            const rejectButtons = document.getElementsByClassName('js-cookie-consent-reject');
+
+            for (let i = 0; i < rejectButtons.length; ++i) {
+                rejectButtons[i].addEventListener('click', rejectWithCookies);
+            }
+
             return {
                 consentWithCookies: consentWithCookies,
+                rejectWithCookies: rejectWithCookies,
                 hideCookieDialog: hideCookieDialog
             };
         })();

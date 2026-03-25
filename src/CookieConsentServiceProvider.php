@@ -20,9 +20,11 @@ class CookieConsentServiceProvider extends PackageServiceProvider
             ->hasViewComposer('cookie-consent::index', function (View $view) {
                 $cookieConsentConfig = config('cookie-consent');
 
-                $alreadyConsentedWithCookies = Cookie::has($cookieConsentConfig['cookie_name']);
+                $cookieName = $cookieConsentConfig['cookie_name'];
+                $alreadyConsentedWithCookies = Cookie::has($cookieName);
+                $cookieConsentValue = Cookie::get($cookieName);
 
-                $view->with(compact('alreadyConsentedWithCookies', 'cookieConsentConfig'));
+                $view->with(compact('alreadyConsentedWithCookies', 'cookieConsentValue', 'cookieConsentConfig'));
             });
     }
 

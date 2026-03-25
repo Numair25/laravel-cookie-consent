@@ -7,9 +7,12 @@
                         {!! trans('cookie-consent::texts.message') !!}
                     </p>
                 </div>
-                <div class="mt-2 flex-shrink-0 w-full sm:mt-0 sm:w-auto">
+                <div class="mt-2 flex-shrink-0 w-full sm:mt-0 sm:ml-4 sm:w-auto flex gap-2">
                     <button class="js-cookie-consent-agree cookie-consent__agree cursor-pointer flex items-center justify-center px-4 py-2 rounded-md text-sm font-medium text-yellow-800 bg-yellow-400 hover:bg-yellow-300">
                         {{ trans('cookie-consent::texts.agree') }}
+                    </button>
+                    <button class="js-cookie-consent-reject cookie-consent__reject cursor-pointer flex items-center justify-center px-4 py-2 rounded-md text-sm font-medium text-yellow-800 bg-yellow-200 hover:bg-yellow-100 border border-yellow-400">
+                        {{ trans('cookie-consent::texts.reject') }}
                     </button>
                 </div>
             </div>
