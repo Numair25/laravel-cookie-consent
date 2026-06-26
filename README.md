@@ -227,3 +227,18 @@ Add the following styles to your main stylesheet or Tailwind configuration:
         max-width: unset;
     }
 }
+
+### Positioning with Tailwind CSS
+
+If you are using Tailwind CSS in your project, you can achieve this floating layout without writing custom CSS. First, publish the views:
+
+```bash
+php artisan vendor:publish --provider="Spatie\CookieConsent\CookieConsentServiceProvider" --tag="cookie-consent-views"
+```
+
+Then, update the wrapper classes in the published `resources/views/vendor/cookie-consent/dialogContents.blade.php` file:
+
+```html
+<div class="js-cookie-consent cookie-consent fixed bottom-6 right-6 max-w-md p-4 bg-gray-900 text-white rounded-xl shadow-2xl z-50">
+</div>
+```
