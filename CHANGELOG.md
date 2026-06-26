@@ -2,6 +2,18 @@
 
 All notable changes to `cookie-consent` will be documented in this file
 
+## 3.5.0 - 2026-06-15
+
+### What's Changed
+
+* Add Malay, Tamil and Chinese (Simplified & Traditional) translations by @chengkangzai in https://github.com/spatie/laravel-cookie-consent/pull/210
+
+### New Contributors
+
+* @chengkangzai made their first contribution in https://github.com/spatie/laravel-cookie-consent/pull/210
+
+**Full Changelog**: https://github.com/spatie/laravel-cookie-consent/compare/3.4.0...3.5.0
+
 ## 3.4.0 - 2026-02-21
 
 ### What's Changed
